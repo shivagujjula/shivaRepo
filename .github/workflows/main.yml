@@ -16,8 +16,9 @@ jobs:
       - name: print name
         run: |
           echo env_branch
-          if [contains(${{env.env_branch}}, "master")]; then
-            echo "true master"
-          else
-            echo "false branch"
+          echo contains(${{env.env_branch}}, "master")
+          # if [contains(${{env.env_branch}}, "master")]; then
+          #   echo "true master"
+          # else
+          #   echo "false branch"
 #echo "env branch: " ${{env.env_branch}}
