@@ -15,7 +15,7 @@ jobs:
 
       - name: print name
         run: |
-           if [ contains(env.env_branch, 'master')]; then
+           if [ ${{env.env_branch}} == 'master') ]; then
              echo ${{env.env_branch}}
             else
               echo "this is not master branch"
