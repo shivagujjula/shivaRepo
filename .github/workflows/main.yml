@@ -4,7 +4,7 @@ on:
     branches:
       - master
 env:
-  ENV: dev
+  env_branch: ${GITHUB_REF##*/}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,4 +15,4 @@ jobs:
 
       - name: print name
         run: |
-          echo ${GITHUB_REF##*/}
+          echo: "env branch: " ${{env.env_branch}}
