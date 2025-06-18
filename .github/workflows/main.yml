@@ -21,7 +21,7 @@ jobs:
         id: vars
         run: |
           echo "Current branch is: $env_branch"
-          if [[ "$env_branch" == *"master"* ]]; then
+          if [[ "$env_branch" == *"default"* ]]; then
             echo "branch_folder=master-folder" >> $GITHUB_ENV
           else
             echo "this is not master branch"
