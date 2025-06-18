@@ -24,7 +24,8 @@ jobs:
           if [[ "$env_branch" == *"master"* ]]; then
             echo "branch_folder=master-folder" >> $GITHUB_ENV
           else
-            echo "branch_folder=dev-folder" >> $GITHUB_ENV
+            echo "this is not master branch"
+            exit 0
           fi
       - name: Use branch_folder variable
         run: |
