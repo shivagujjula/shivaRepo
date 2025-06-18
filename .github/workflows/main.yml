@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Set branch_folder based on branch
+        id: vars
         run: |
           echo "Current branch is: $env_branch"
           if [[ "$env_branch" == *"master"* ]]; then
