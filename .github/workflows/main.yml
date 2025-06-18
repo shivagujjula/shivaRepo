@@ -1,10 +1,14 @@
-name: Deploy to AWS S3
+name: testing if else condition
+
 on:
   push:
     branches:
       - master
+      - '**'  # allow all branches for generality, optional
+
 env:
-  env_branch: ${{GITHUB.ref_name}}
+  env_branch: ${{ github.ref_name }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,17 +17,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: print name
+      - name: Print branch and conditionally respond
         run: |
-           if [[ ${{env.env_branch}} == 'master') ]]; then
-             echo ${{env.env_branch}}
-            else
-              echo "this is not master branch"
-        # run: |
-        #   echo ${{env.env_branch}}
-        #   echo contains(env.env_branch, "master")
-          # if [contains(${{env.env_branch}}, "master")]; then
-          #   echo "true master"
-          # else
-          #   echo "false branch"
-#echo "env branch: " ${{env.env_branch}}
+          echo "Current branch is: $env_branch"
+          if [[ "$env_branch" == *"master"* ]]; then
+            echo "$env_branch"
+          else
+            echo "This is not master branch"
+          fi
+        env:
+          env_branch: ${{ github.ref_name }}
