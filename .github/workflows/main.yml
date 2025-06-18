@@ -14,10 +14,9 @@ jobs:
         uses: actions/checkout@v1
 
       - name: print name
-        if: contains(env.env_branch, 'master')
         run: |
            echo ${{env.env_branch}}
-           echo "let's run"
+           echo contains(env.env_branch, 'master')
         # run: |
         #   echo ${{env.env_branch}}
         #   echo contains(env.env_branch, "master")
