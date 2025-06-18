@@ -15,4 +15,4 @@ jobs:
 
       - name: print name
         run: |
-          echo: "env branch: " ${{env.env_branch}}
+          echo: "env branch: ${{env.env_branch}}"
