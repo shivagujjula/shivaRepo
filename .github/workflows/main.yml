@@ -17,18 +17,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Print branch and conditionally respond
-        id: vars
+      - name: Set branch_folder based on branch
         run: |
           echo "Current branch is: $env_branch"
           if [[ "$env_branch" == *"master"* ]]; then
-            echo "$env_branch"
-            echo "branch_folder="master-folder" >> $GITHUB_ENV
-            
+            echo "branch_folder=master-folder" >> $GITHUB_ENV
           else
-            echo "This is not master branch"
-            echo "branch_folder="dev-folder" >> $GITHUB_ENV
+            echo "branch_folder=dev-folder" >> $GITHUB_ENV
           fi
-      - name: Print branch folder
+        env:
+          env_branch: ${{ github.ref_name }}
+
+      - name: Use branch_folder variable
         run: |
           echo "Branch folder is: $branch_folder"
+        env:
+          branch_folder: ${{ env.branch_folder }}
