@@ -29,6 +29,6 @@ jobs:
             echo "This is not master branch"
             echo "branch_folder="dev-folder" >> $GITHUB_ENV
           fi
-      - name: Print branch and conditionally respond
+      - name: Print branch folder
         run: |
-          echo ${{env.branch_folder}}
+          echo "Branch folder is: $branch_folder"
