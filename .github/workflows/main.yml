@@ -25,7 +25,7 @@ jobs:
             echo "branch_folder=master-folder" >> $GITHUB_ENV
           else
             echo "this is not master branch"
-            exit 0
+            exit 1
           fi
       - name: Use branch_folder variable
         run: |
