@@ -15,7 +15,7 @@ jobs:
 
       - name: print name
         if: contains(env.env_branch, "master")
-         run:|
+        run: |
            echo ${{env.env_branch}}
            echo "let's run"
         # run: |
